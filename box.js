@@ -1,16 +1,26 @@
-class Box extends BaseClass {
-    constructor(x, y, width, height){
-      super(x,y,width,height);
-     
+class Box{
+  constructor(x, y, width, height) {
+      var options = {
+         
+          restitution :0.4,
+          friction :0.0,
+          
+         
+      }
+      this.body = Bodies.rectangle(x, y, width, height, options);
+      this.width = width;
+      this.height = height;
+      World.add(world, this.body);
     }
-    block1= new block(330,235,30,40);
-block2= new block(360,235,30,40);
-block3= new block(390,235,30,40);
-block4= new block(420,235,30,40);
-block5= new block(450,235,30,40);
-block6= new block(360,195,30,40);
-block7= new block(390,195,30,40);
-block8= new block(420,195,30,40);
-block9= new block(390,155,30,40);
-  
-  };
+    display(){
+      var angle = this.body.angle;
+      var pos= this.body.position;
+      push();
+      translate(pos.x, pos.y);
+      rotate(angle);
+      rectMode(CENTER);
+      rect(0,0,this.width, this.height);
+      pop();
+    }
+}
+

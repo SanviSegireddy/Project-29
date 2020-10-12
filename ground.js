@@ -1,17 +1,15 @@
 class Ground {
     constructor(x,y,width,height) {
-      var options = {
+      var ground_options = {
           isStatic: true
       }
-      this.body = Bodies.rectangle(x,y,width,height,options);
-      this.width = width;
-      this.height = height;
-      World.add(world, this.body);
+      this.ground = Bodies.rectangle(450,390,900,20,ground_options)
+      World.add(world, this.ground);
     }
     display(){
-      var pos =this.body.position;
+      noStroke();
       rectMode(CENTER);
       fill("brown");
-      rect(pos.x, pos.y, this.width, this.height);
+      rect(this.ground.position.x,this.ground.position.y,900,20);
     }
-  };
+  }
